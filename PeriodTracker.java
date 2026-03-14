@@ -28,7 +28,8 @@ public class PeriodTracker {
         PeriodRecord lastOne = records.get(currentLength - 1);
         LocalDate lastDate = lastOne.getStartDate();
         int lastCycle = lastOne.getCycleLength();
-        prediction = lastDate.plusDays(lastCycle); //Predicting using the last period record data
+        int lastDuration = lastOne.getDuration();
+        prediction = lastDate.plusDays(lastCycle+lastDuration); //Predicting using the last period record data
 
         return prediction;
     }
