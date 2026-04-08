@@ -27,7 +27,7 @@
 
         div.content {
             background-color: rgb(247, 231, 246);
-            height: 100px;
+            height: 120px;
             width: 300px;
             padding-left: 80px;
             padding-top: 30px;
@@ -37,6 +37,11 @@
             left: 550px;
             top: 450px;
         }
+
+        .click {
+            margin-top: -20px;
+            margin-left: 60px
+        }
     </style>
 </head>
 
@@ -45,10 +50,22 @@
         <h1>Period Tracker</h1>
     </div>
 
-    <div class = "content">
+    <div class = "content" id = "hereToStart">
         <h2 style="font-family: 'Indie Flower', cursive;
-            color: rgb(111, 4, 58)">Track Your Period</h2>
+            color: rgb(111, 4, 58)">Track Your Period
+        </h2>
+        <h3 class = "click" style = "font-family: 'Indie Flower', cursive;
+            color: rgb(111, 4, 58)">
+                (Click me!)
+        </h3>
     </div>
+
+    <script>
+        var content = document.getElementById("hereToStart");
+        content.onclick = function() {
+            alert("you have clicked the button");
+        }
+    </script>
     
 </body>
 </html>
