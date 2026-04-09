@@ -13,35 +13,88 @@
 
         div.title {
             background-color: mistyrose;
-            height: 150px;
-            width: 300px;
-            padding-left: 80px;
-            padding-top: 50px;
+            height: 100px;
+            width: 600px;
+            padding-left: 320px;
+            padding-top: 10px;
             display: inline-block;
             border-radius: 20%;
             border: 2px solid rgb(111, 4, 58);
             position: fixed;
-            left: 550px;
+            left: 300px;
+            top: 50px;
+        }
+
+        div.inputBox {
+            background-color: rgb(252, 247, 247);
+            height: 365px;
+            width: 930px;
+            border: 2px solid rgb(195, 8, 102);
+            border-radius: 20%;
+            position: fixed;
+            left: 300px;
             top: 200px;
         }
 
-        div.content {
-            background-color: rgb(247, 231, 246);
-            height: 120px;
-            width: 300px;
-            padding-left: 80px;
-            padding-top: 30px;
-            border-radius: 30%;
-            border: 2px solid rgb(111, 4, 58);
-            position: fixed;
-            left: 550px;
-            top: 450px;
+        input.Date {
+            position: fixed; 
+            left: 450px; 
+            top: 230px; 
+            width: 600px; 
+            height: 50px; 
+            border-radius: 10px; 
+            border: 1.5px solid rgb(195, 8, 102); 
+            padding-left: 10px;
         }
 
-        .click {
-            margin-top: -20px;
-            margin-left: 60px
+        input.Duration {
+            position: fixed; 
+            left: 450px; 
+            top: 320px; 
+            width: 600px; 
+            height: 50px; 
+            border-radius: 10px; 
+            border: 1.5px solid rgb(195, 8, 102); 
+            padding-left: 10px;
         }
+
+        input.CycleLength {
+            position: fixed; 
+            left: 450px; 
+            top: 410px; 
+            width: 600px; 
+            height: 50px; 
+            border-radius: 10px; 
+            border: 1.5px solid rgb(195, 8, 102); 
+            padding-left: 10px;
+        }
+
+        button.Button {
+            position: fixed; 
+            left: 590px; 
+            top: 490px; 
+            width: 300px; 
+            height: 45px; 
+            border-radius: 10px; 
+            border: 1.5px solid rgb(195, 8, 102); 
+            font-size: 18px;
+            background-color: white;
+            color: rgb(111, 4, 58);
+            font-family: 'Indie Flower', cursive;
+            color: rgb(111, 4, 58);
+        }
+
+        div.outputBox {
+            background-color: rgb(252, 247, 247);
+            height: 80px;
+            width: 700px;
+            border: 2px solid rgb(195, 8, 102);
+            border-radius: 20%;
+            position: fixed;
+            left: 420px;
+            top: 600px;
+        }
+
     </style>
 </head>
 
@@ -50,21 +103,23 @@
         <h1>Period Tracker</h1>
     </div>
 
-    <div class = "content" id = "hereToStart">
-        <h2 style="font-family: 'Indie Flower', cursive;
-            color: rgb(111, 4, 58)">Track Your Period
-        </h2>
-        <h3 class = "click" style = "font-family: 'Indie Flower', cursive;
-            color: rgb(111, 4, 58)">
-                (Click me!)
-        </h3>
+    <div class = "inputBox">
     </div>
 
+    <input class = "Date" placeholder = "Enter the start date of your period (YYYY-MM-DD)" id = "dateInput" >
+    <input class = "Duration" placeholder = "Enter the duration of your period (in days)" id = "durationInput" >
+    <input class = "CycleLength" placeholder = "Enter the length of your menstrual cycle (in days)" id = "cycleLengthInput" >
+    <button class = "Button">
+        Predict Next Period
+    </button>
+
+    <div class = "outputBox">
+    </div>
+
+    <input type = "text" id = "predictionOutput" placeholder = "Your next period is predicted to start on: " style="position: fixed; left:
+     450px; top: 600px; width: 600px; height: 50px; border-radius: 10px; border: 1.5px solid rgb(195, 8, 102);
+      padding-left: 10px; margin: 15px;" readonly>
     <script>
-        var content = document.getElementById("hereToStart");
-        content.onclick = function() {
-            alert("you have clicked the button");
-        }
 
         class PeriodRecord {
             constructor(date, duration, cyclelength) {
