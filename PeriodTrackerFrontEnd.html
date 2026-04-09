@@ -65,6 +65,52 @@
         content.onclick = function() {
             alert("you have clicked the button");
         }
+
+        class PeriodRecord {
+            constructor(date, duration, cyclelength) {
+                this.date = new Date(date);
+                this.duration = duration;
+                this.cyclelength = cyclelength;
+            }
+
+            getStartDate() {
+                return this.date;
+            }
+
+            getDuration() {
+                return this.duration;
+            }
+
+            getCycleLength() {
+                return this.cyclelength;
+            }
+        }
+
+        let records = [];
+
+        class PeriodTracker {
+
+            addRecord(record) {
+                records.push(record);
+            }
+
+            periodPredictor() {
+        
+                if (records.length==0){ //returning null if there is no data
+                    return null;
+                }
+
+                var currentLength = records.length;
+                let lastOne = records[currentLength - 1];
+                let lastDate = lastOne.getStartDate();
+                let lastCycle = lastOne.getCycleLength();
+                let lastDuration = lastOne.getDuration();
+                let prediction = new Date(lastDate);
+                prediction.setDate(prediction.getDate() + lastCycle + lastDuration); //Predicting using the last period record data
+
+                 return prediction;
+            }
+        }
     </script>
     
 </body>

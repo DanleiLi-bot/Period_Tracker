@@ -7,21 +7,8 @@ import java.time.LocalDate;
 
 public class PeriodRecord {
     private LocalDate startDate; //Start date
-
-    public LocalDate getStartDate(){ //Getter for start date of the period
-        return startDate;
-    }
-
     private int duration; //Duration
-
-    public int getDuration(){ //getter for duration of the period
-        return duration;
-    }
     private int cycleLength; //cycle length
-
-    public int getCycleLength(){ //getter for cycle length of the period
-        return cycleLength;
-    }
 
     public PeriodRecord(LocalDate startDate, int duration, int cycleLength) { //Constructor for the period record
         this.startDate = startDate;
@@ -29,6 +16,16 @@ public class PeriodRecord {
         this.cycleLength = cycleLength;
     }
 
+    public LocalDate getStartDate(){ //Getter for start date of the period
+        return startDate;
+    }
 
+    public int getDuration(){ //getter for duration of the period
+        return duration;
+    }
+
+    public int getCycleLength(){ //getter for cycle length of the period
+        return cycleLength;
+    }
     
 }
