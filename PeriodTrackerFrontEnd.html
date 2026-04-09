@@ -164,7 +164,7 @@
                 let lastCycle = lastOne.getCycleLength();
                 let lastDuration = lastOne.getDuration();
                 let prediction = new Date(lastDate);
-                prediction.setDate(prediction.getDate() + lastCycle + lastDuration); //Predicting using the last period record data
+                prediction.setDate(prediction.getDate() + lastCycle); //Predicting using the last period record data
 
                 return prediction;
             }
