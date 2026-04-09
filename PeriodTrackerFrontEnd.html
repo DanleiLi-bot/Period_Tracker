@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,46 +38,46 @@
         }
 
         input.Date {
-            position: fixed; 
-            left: 450px; 
-            top: 230px; 
-            width: 600px; 
-            height: 50px; 
-            border-radius: 10px; 
-            border: 1.5px solid rgb(195, 8, 102); 
+            position: fixed;
+            left: 450px;
+            top: 230px;
+            width: 600px;
+            height: 50px;
+            border-radius: 10px;
+            border: 1.5px solid rgb(195, 8, 102);
             padding-left: 10px;
         }
 
         input.Duration {
-            position: fixed; 
-            left: 450px; 
-            top: 320px; 
-            width: 600px; 
-            height: 50px; 
-            border-radius: 10px; 
-            border: 1.5px solid rgb(195, 8, 102); 
+            position: fixed;
+            left: 450px;
+            top: 320px;
+            width: 600px;
+            height: 50px;
+            border-radius: 10px;
+            border: 1.5px solid rgb(195, 8, 102);
             padding-left: 10px;
         }
 
         input.CycleLength {
-            position: fixed; 
-            left: 450px; 
-            top: 410px; 
-            width: 600px; 
-            height: 50px; 
-            border-radius: 10px; 
-            border: 1.5px solid rgb(195, 8, 102); 
+            position: fixed;
+            left: 450px;
+            top: 410px;
+            width: 600px;
+            height: 50px;
+            border-radius: 10px;
+            border: 1.5px solid rgb(195, 8, 102);
             padding-left: 10px;
         }
 
         button.Button {
-            position: fixed; 
-            left: 590px; 
-            top: 490px; 
-            width: 300px; 
-            height: 45px; 
-            border-radius: 10px; 
-            border: 1.5px solid rgb(195, 8, 102); 
+            position: fixed;
+            left: 590px;
+            top: 490px;
+            width: 300px;
+            height: 45px;
+            border-radius: 10px;
+            border: 1.5px solid rgb(195, 8, 102);
             font-size: 18px;
             background-color: white;
             color: rgb(111, 4, 58);
@@ -94,7 +95,6 @@
             left: 420px;
             top: 600px;
         }
-
     </style>
 </head>
 
@@ -103,20 +103,23 @@
         <h1>Period Tracker</h1>
     </div>
 
-    <div class = "inputBox">
+    <div class="inputBox">
     </div>
 
-    <input class = "Date" placeholder = "Enter the start date of your period (YYYY-MM-DD)" id = "dateInput" onchange="updateDate()" >
-    <input class = "Duration" placeholder = "Enter the duration of your period (in days)" id = "durationInput" onchange="updateDuration()" >
-    <input class = "CycleLength" placeholder = "Enter the length of your menstrual cycle (in days)" id = "cycleLengthInput" onchange="updateCycleLength()" >
-    <button class = "Button" onclick = "calculatePrediction()">
+    <input class="Date" placeholder="Enter the start date of your period (YYYY-MM-DD)" id="dateInput"
+        onchange="updateDate()">
+    <input class="Duration" placeholder="Enter the duration of your period (in days)" id="durationInput"
+        onchange="updateDuration()">
+    <input class="CycleLength" placeholder="Enter the length of your menstrual cycle (in days)" id="cycleLengthInput"
+        onchange="updateCycleLength()">
+    <button class="Button" onclick="calculatePrediction()">
         Predict Next Period
     </button>
 
-    <div class = "outputBox">
+    <div class="outputBox">
     </div>
 
-    <input type = "text" id = "predictionOutput" placeholder = "Your next period is predicted to start on: " style="position: fixed; left:
+    <input type="text" id="predictionOutput" placeholder="Your next period is predicted to start on: " style="position: fixed; left:
      450px; top: 600px; width: 600px; height: 50px; border-radius: 10px; border: 1.5px solid rgb(195, 8, 102);
       padding-left: 10px; margin: 15px;" readonly>
     <script>
@@ -150,8 +153,8 @@
             }
 
             periodPredictor() {
-        
-                if (records.length==0){ //returning null if there is no data
+
+                if (records.length == 0) { //returning null if there is no data
                     return null;
                 }
 
@@ -163,7 +166,7 @@
                 let prediction = new Date(lastDate);
                 prediction.setDate(prediction.getDate() + lastCycle + lastDuration); //Predicting using the last period record data
 
-                 return prediction;
+                return prediction;
             }
         }
 
@@ -197,6 +200,7 @@
             }
         }
     </script>
-    
+
 </body>
+
 </html>
