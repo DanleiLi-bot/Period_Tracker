@@ -106,10 +106,10 @@
     <div class = "inputBox">
     </div>
 
-    <input class = "Date" placeholder = "Enter the start date of your period (YYYY-MM-DD)" id = "dateInput" >
-    <input class = "Duration" placeholder = "Enter the duration of your period (in days)" id = "durationInput" >
-    <input class = "CycleLength" placeholder = "Enter the length of your menstrual cycle (in days)" id = "cycleLengthInput" >
-    <button class = "Button">
+    <input class = "Date" placeholder = "Enter the start date of your period (YYYY-MM-DD)" id = "dateInput" onchange="updateDate()" >
+    <input class = "Duration" placeholder = "Enter the duration of your period (in days)" id = "durationInput" onchange="updateDuration()" >
+    <input class = "CycleLength" placeholder = "Enter the length of your menstrual cycle (in days)" id = "cycleLengthInput" onchange="updateCycleLength()" >
+    <button class = "Button" onclick = "calculatePrediction()">
         Predict Next Period
     </button>
 
@@ -124,8 +124,8 @@
         class PeriodRecord {
             constructor(date, duration, cyclelength) {
                 this.date = new Date(date);
-                this.duration = duration;
-                this.cyclelength = cyclelength;
+                this.duration = Number(duration);
+                this.cyclelength = Number(cyclelength);
             }
 
             getStartDate() {
@@ -164,6 +164,36 @@
                 prediction.setDate(prediction.getDate() + lastCycle + lastDuration); //Predicting using the last period record data
 
                  return prediction;
+            }
+        }
+
+        var currentDate;
+        var currentDuration;
+        var currentCycleLength;
+
+        function updateDate() {
+            currentDate = document.getElementById("dateInput").value;
+        }
+
+        function updateDuration() {
+            currentDuration = document.getElementById("durationInput").value;
+        }
+
+        function updateCycleLength() {
+            currentCycleLength = document.getElementById("cycleLengthInput").value;
+        }
+
+        function calculatePrediction() {
+            var newRecord = new PeriodRecord(currentDate, currentDuration, currentCycleLength);
+            var tracker = new PeriodTracker();
+            tracker.addRecord(newRecord);
+            var prediction = tracker.periodPredictor();
+
+            if (prediction == null) {
+                document.getElementById("predictionOutput").value = "Please enter your period data to get a prediction.";
+            } else {
+                let modifiedPrediction = prediction.getFullYear() + "-" + (prediction.getMonth() + 1).toString().padStart(2, '0') + "-" + prediction.getDate().toString().padStart(2, '0');
+                document.getElementById("predictionOutput").value = "Your next period is predicted to start on: " + modifiedPrediction;
             }
         }
     </script>
